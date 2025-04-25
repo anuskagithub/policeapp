@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webcam Capture</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #000;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px; /* Increased font size for header title */
+            font-weight: bold;
+        }
+        .header a {
+            padding: 8px 16px; /* Reduced padding for smaller link size */
+            font-size: 14px; /* Reduced font size for links */
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .header a:hover {
+            text-decoration: underline;
+        }
+        .form-frame {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            margin: 20px auto;
+            position: relative; /* Added relative positioning */
+        }
+        #video {
+            width: 320px;
+            height: 240px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        #frame {
+            border: 2px dashed #ff0000;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #quality-bar {
+            width: 100%;
+            background-color: #ddd;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #quality-bar div {
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            border-radius: 10px;
+        }
+        #capture, #next {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        #capture:hover, #next:hover {
+            background-color: #0056b3;
+        }
+        #next:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        #auto-capture-container {
+            margin-top: 10px;
+        }
+        #logout-button {
+            padding: 7px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff0000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #logout-button:hover {
+            background-color: #cc0000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Image Acquirer</h1>
+        <a id="logout-button" href="{% url 'logout' %}">Logout</a>
+    </div>
+    <div class="form-frame">
+        <div id="auto-capture-container">
+            <label for="auto-capture">Auto-Capture</label>
+            <input type="checkbox" id="auto-capture">
+        </div>
+        <video id="video" autoplay></video>
+        <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+        <div id="quality-bar"><div style="width: 0%;"></div></div>
+        <button id="capture">Capture Photo</button>
+        <button id="next" onclick="window.location.href='{% url 'user_form' %}'">Next</button>
+    </div>
+    <script>
+        (function() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const captureButton = document.getElementById('capture');
+            const qualityBar = document.getElementById('quality-bar').firstElementChild;
+            const autoCaptureCheckbox = document.getElementById('auto-capture');
+            const context = canvas.getContext('2d');
+            const captureInterval = 5000;  // 5 seconds
+            let autoCaptureEnabled = false;
+            let intervalId;
+        
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                })
+                .catch(err => {
+                    console.error('Error accessing the camera', err);
+                });
+        
+            function capturePhoto() {
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const dataURL = canvas.toDataURL('image/png');
+        
+                fetch('/save_photo/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken'),
+                    },
+                    body: JSON.stringify({ image: dataURL })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const quality = data.quality;
+                    qualityBar.style.width = `${quality}%`;
+                    qualityBar.textContent = `${quality}%`;
+        
+                    if (quality < 30) {
+                        qualityBar.style.backgroundColor = 'red';
+                    } else if (quality > 50) {
+                        qualityBar.style.backgroundColor = 'green';
+                    } else {
+                        qualityBar.style.backgroundColor = 'yellow';
+                    }
+        
+                    if (data.message) {
+                        alert(data.message);
+                    }
+                });
+            }
+        
+            captureButton.addEventListener('click', capturePhoto);
+        
+            autoCaptureCheckbox.addEventListener('change', () => {
+                autoCaptureEnabled = autoCaptureCheckbox.checked;
+                if (autoCaptureEnabled) {
+                    intervalId = setInterval(capturePhoto, captureInterval);
+                } else {
+                    clearInterval(intervalId);
+                }
+            });
+        
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+        })();
+    </script>
+</body>
+</html>

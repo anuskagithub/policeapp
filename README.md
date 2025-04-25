@@ -38,5 +38,6 @@ Getting Started
 
 Visit http://127.0.0.1:8000/ in your browser.
 
+<img width="275" alt="image" src="https://github.com/user-attachments/assets/1de218d2-3be4-470a-b800-0e0fa3e83615" />
 
 

@@ -42,22 +42,10 @@ Visit http://127.0.0.1:8000/ in your browser.
 Flowchart/DFD
 <img width="275" alt="image" src="https://github.com/user-attachments/assets/1de218d2-3be4-470a-b800-0e0fa3e83615" />
 
-
-
-
-
-
 User Interface
 <img width="229" alt="image" src="https://github.com/user-attachments/assets/52f8d013-3540-43b7-81ca-6c9849549418" />
-
-
-
 <img width="276" alt="image" src="https://github.com/user-attachments/assets/dc98ed33-c0e4-4bd3-b634-6fd976eae509" />
-
-
 <img width="320" alt="image" src="https://github.com/user-attachments/assets/db93f442-3702-4440-97a6-72eb8a4dd106" />
-
-
 <img width="317" alt="image" src="https://github.com/user-attachments/assets/f499b168-ce1f-4e1c-bbe6-e25bfc0bd4d4" />
 
 

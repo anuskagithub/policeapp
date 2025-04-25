@@ -22,7 +22,7 @@ Project_App/
 
 Getting Started
 1. Clone the repository
-  git clone https://github.com/yourusername/bangalore-city-police-app.git
+  git clone https://github.com/anuskagithub/policeapp.git
   cd bangalore-city-police-app
 
 2. Create and activate a virtual environment

@@ -45,20 +45,47 @@ Project_App/
 
 Visit http://127.0.0.1:8000/ in your browser.</p> 
 
-Flowchart/DFD
-<img width="275" alt="image" src="https://github.com/user-attachments/assets/1de218d2-3be4-470a-b800-0e0fa3e83615" />
+### Flowchart / DFD
 
-User Interface
-<img width="406" alt="image" src="https://github.com/user-attachments/assets/f47e8a09-27af-4f56-82ea-d0dd09de7621" />
-<img width="410" alt="image" src="https://github.com/user-attachments/assets/7c349b17-daca-4dee-884a-f2a6be9823dc" />
-<img width="409" alt="image" src="https://github.com/user-attachments/assets/b72eae3d-5a32-4849-8dae-cec8b955bc42" />
-<img width="410" alt="image" src="https://github.com/user-attachments/assets/48410e01-8384-4267-ab2a-71afc176199f" />
+<div align="left">
+  <img width="275" alt="Flowchart or DFD" src="https://github.com/user-attachments/assets/1de218d2-3be4-470a-b800-0e0fa3e83615" />
+</div>
 
-Admin Interface
-<img width="408" alt="image" src="https://github.com/user-attachments/assets/24e8d57a-4ffd-4abd-8250-a88cdf92b5ba" />
-<img width="403" alt="image" src="https://github.com/user-attachments/assets/67873230-3acf-421b-ac6c-e47883d7f835" />
-<img width="409" alt="image" src="https://github.com/user-attachments/assets/cae97ad2-0e6e-4689-84c3-1bb6d3c7fc6c" />
+---
 
+### User Interface
+
+<div align="left">
+  <img width="406" alt="User Interface 1" src="https://github.com/user-attachments/assets/f47e8a09-27af-4f56-82ea-d0dd09de7621" />
+</div>
+
+<div align="left">
+  <img width="410" alt="User Interface 2" src="https://github.com/user-attachments/assets/7c349b17-daca-4dee-884a-f2a6be9823dc" />
+</div>
+
+<div align="left">
+  <img width="409" alt="User Interface 3" src="https://github.com/user-attachments/assets/b72eae3d-5a32-4849-8dae-cec8b955bc42" />
+</div>
+
+<div align="left">
+  <img width="410" alt="User Interface 4" src="https://github.com/user-attachments/assets/48410e01-8384-4267-ab2a-71afc176199f" />
+</div>
+
+---
+
+### Admin Interface
+
+<div align="left">
+  <img width="408" alt="Admin Interface 1" src="https://github.com/user-attachments/assets/24e8d57a-4ffd-4abd-8250-a88cdf92b5ba" />
+</div>
+
+<div align="left">
+  <img width="403" alt="Admin Interface 2" src="https://github.com/user-attachments/assets/67873230-3acf-421b-ac6c-e47883d7f835" />
+</div>
+
+<div align="left">
+  <img width="409" alt="Admin Interface 3" src="https://github.com/user-attachments/assets/cae97ad2-0e6e-4689-84c3-1bb6d3c7fc6c" />
+</div>
 
 
 

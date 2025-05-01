@@ -1,6 +1,6 @@
-City Police App
+### City Police App
 
-The project involves developing a web application aimed at creating and managing a database of facial images and associated soft biometric information of individuals. This system ensures that high-quality images and accurate data are securely stored and efficiently managed for various applications such as security and identity verification.
+<p align='justify' The project involves developing a web application aimed at creating and managing a database of facial images and associated soft biometric information of individuals. This system ensures that high-quality images and accurate data are securely stored and efficiently managed for various applications such as security and identity verification.
 
 The application features user registration and authentication, linking personal information with a unique device ID to restrict access to authorized users only. Users can capture facial images using a webcam, and the system assesses the quality of these images in real-time. A quality bar displays the image quality on a scale from 0% to 100%, with color indicators to signify poor, average, and good quality, ensuring only high-quality images are saved. 
 
@@ -43,7 +43,7 @@ Getting Started
   python manage.py migrate
   python manage.py runserver
 
-Visit http://127.0.0.1:8000/ in your browser.
+Visit http://127.0.0.1:8000/ in your browser. </p>
 
 Flowchart/DFD
 <img width="275" alt="image" src="https://github.com/user-attachments/assets/1de218d2-3be4-470a-b800-0e0fa3e83615" />

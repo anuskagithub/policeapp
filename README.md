@@ -17,7 +17,7 @@ Features
 Tech Stack
 -Backend: Python, Django
 -Frontend: HTML, CSS (add JS if applicable)
--Database: Default Django ORM (SQLite/MySQL)
+-Database: Default Django ORM (SQLite/MySQL) </p>
 
 Project Structure
 Project_App/
@@ -27,7 +27,7 @@ Project_App/
         ├── capture/                # Django app
         └── manage.py
 
-Getting Started
+<p align='justify' Getting Started
 1. Clone the repository
   git clone https://github.com/anuskagithub/policeapp.git
   cd bangalore-city-police-app
@@ -43,7 +43,7 @@ Getting Started
   python manage.py migrate
   python manage.py runserver
 
-Visit http://127.0.0.1:8000/ in your browser. </p>
+Visit http://127.0.0.1:8000/ in your browser.</p>
 
 Flowchart/DFD
 <img width="275" alt="image" src="https://github.com/user-attachments/assets/1de218d2-3be4-470a-b800-0e0fa3e83615" />

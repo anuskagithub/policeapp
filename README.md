@@ -1,4 +1,4 @@
-### City Police App
+### City Police App-A web application capable of capturing person's facial images along with other soft bio-metric information
 
 <p align='justify' The project involves developing a web application aimed at creating and managing a database of facial images and associated soft biometric information of individuals. This system ensures that high-quality images and accurate data are securely stored and efficiently managed for various applications such as security and identity verification.
 
